@@ -52,7 +52,11 @@ function App() {
                     overflowY: 'scroll'
                 }}
                      onScroll={(e) => {
-                         if (e.currentTarget.scrollTop > lastScrollTop) {
+
+                         var maxScrollPosition = e.currentTarget.scrollHeight - e.currentTarget.clientHeight;
+
+
+                         if (e.currentTarget.scrollTop > lastScrollTop && Math.abs(maxScrollPosition - e.currentTarget.scrollTop) < 5) {
                              setIsAutoScrollActive(true)
 
                          } else {
